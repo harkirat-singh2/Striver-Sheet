@@ -18,7 +18,7 @@ public class Array {
         }
         return minVal;
     }
-    boolean isSorted(int[] arr){
+    boolean isSortedAndRotated(int[] arr){
         for (int i = 0;i<arr.length;i++){
             if (arr[i]>arr[i+1]) return false;
         }
@@ -45,18 +45,24 @@ public class Array {
         }
         return al;
     }
-
-    void rotateArray(int[] arr){
-        int i = 0;
-        int j= arr.length-1;
-        while (i<j){
-            int temp = arr[i];
-            arr[i]= arr[j];
-            arr[j] = temp;
-            i++;
-            j--;
+    void rotateArray(int[] arr,int start, int end){
+        while (start<end){
+            int temp = arr[start];
+            arr[start]= arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
         }
     }
+    void rotateRight(int[] arr , int k){
+        int n = arr.length;
+        k=k%n;
+        rotateArray(arr,0,n-1);
+        rotateArray(arr,0,k-1);
+        rotateArray(arr,k,n-1);
+
+    }
+
 
     public static void main(String[] args) {
         System.out.println();
