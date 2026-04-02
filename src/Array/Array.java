@@ -1,6 +1,7 @@
 package Array;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Array {
     int largestEl(int[] arr){
@@ -34,8 +35,9 @@ public class Array {
         int i=0;
         for (int j = 1; j < arr.length; j++) {
             if (arr[i]!=arr[j]) {
+                arr[i]=arr[j];
                 i++;
-                arr[i]=arr[j];}
+            }
         }
         return i+1;
     }
@@ -80,14 +82,12 @@ public class Array {
             }
         }
     }
-    
     int linearSearch(int[] arr , int target){
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] == target) return i;
         }
         return -1;
     }
-
      void merge(int[] arr1, int m, int[] arr2, int n) {
         int i = m-1;
         int j= n-1;
@@ -152,7 +152,6 @@ public class Array {
             // Print result (optional)
             System.out.println(arr);
         }
-
      int missingNo(int[] arr){
         int n = arr.length;
         int sum = 0;
@@ -162,6 +161,62 @@ public class Array {
          }
          return netSum-sum;
      }
+
+    int findMaxConsecutiveOnes(int[] arr) {
+        int maxCount = 0;
+        int count = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == 1) {
+                count++;
+                maxCount = Math.max(maxCount, count);
+            } else {
+                count = 0;
+            }
+        }
+        return maxCount;
+    }
+    int findMaxConsecutiveOnesAlter(int[] arr) {
+        int maxCount=0;
+        int count=0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i]==0){
+                if (maxCount<count){
+                    maxCount=count;
+                }
+                count=0;
+            }
+            else {
+                count++;
+                if (maxCount<count) maxCount=count;
+
+            }
+        }
+        return maxCount;
+    }
+
+    int singleNumberWithHashMap(int[] arr) {
+        int singleFreq=-1;
+        HashMap<Integer,Integer> map = new HashMap<>();
+        for (int el : arr){
+            map.put(el, map.getOrDefault(el,0)+1);
+        }
+        for (int key: map.keySet()){
+            if (map.get(key)==1)singleFreq= key;
+        }
+        return singleFreq;
+    }
+    int singleNumber(int[] arr) {
+        int ans = 0;
+        for (int el : arr) {
+            ans = ans ^ el;
+        }
+        return ans;
+    }
+
+    int longestSubarray(int[] arr, int k) {
+
+    }
 
     public static void main(String[] args) {
         System.out.println();
