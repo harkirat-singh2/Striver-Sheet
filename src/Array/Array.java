@@ -19,8 +19,13 @@ public class Array {
         return minVal;
     }
     boolean isSortedAndRotated(int[] arr){
+        int n = arr.length;
+        int count = 0;
         for (int i = 0;i<arr.length;i++){
-            if (arr[i]>arr[i+1]) return false;
+            if (arr[i] > arr[(i+1) % n]) {
+                count++;
+                if (count>1)return false;
+            }
         }
         return true;
     }
@@ -62,7 +67,9 @@ public class Array {
         rotateArray(arr,k,n-1);
 
     }
-
+    void moveZeroesToEnd(int[] arr){
+        
+    }
 
     public static void main(String[] args) {
         System.out.println();
