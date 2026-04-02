@@ -111,7 +111,7 @@ public class Array {
              k--;
          }
     }
-        void union(int[] arr1, int m, int[] arr2, int n) {
+     void union(int[] arr1, int m, int[] arr2, int n) {
             ArrayList<Integer> arr = new ArrayList<>();
             int i = 0, j = 0;
             // Main loop
@@ -152,6 +152,16 @@ public class Array {
             // Print result (optional)
             System.out.println(arr);
         }
+
+     int missingNo(int[] arr){
+        int n = arr.length;
+        int sum = 0;
+        int netSum =(n*(n+1))/2;
+         for (int i = 0; i < arr.length; i++) {
+             sum+=arr[i];
+         }
+         return netSum-sum;
+     }
 
     public static void main(String[] args) {
         System.out.println();
