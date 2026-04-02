@@ -111,30 +111,47 @@ public class Array {
              k--;
          }
     }
-    void union(int[] arr1, int m, int[] arr2, int n) {
-        int i = m-1;
-        int j= n-1;
-        int k = m+n-1;
-
-        while (i>=0 && j>=0){
-            if (arr2[j]>arr1[i]) {
-                arr1[k] = arr2[j];
-                j--;
-                k--;
+        void union(int[] arr1, int m, int[] arr2, int n) {
+            ArrayList<Integer> arr = new ArrayList<>();
+            int i = 0, j = 0;
+            // Main loop
+            while (i < m && j < n) {
+                int val;
+                if (arr1[i] < arr2[j]) {
+                    val = arr1[i];
+                    i++;
+                }
+                else if (arr1[i] > arr2[j]) {
+                    val = arr2[j];
+                    j++;
+                }
+                else {
+                    val = arr1[i];
+                    i++;
+                    j++;
+                }
+                // Add only if not duplicate
+                if (arr.isEmpty() || arr.get(arr.size() - 1) != val) {
+                    arr.add(val);
+                }
             }
-            else {
-                arr1[k] = arr1[i];
-                i--;
-                k--;
+            // Remaining elements of arr1
+            while (i < m) {
+                if (arr.isEmpty() || arr.get(arr.size() - 1) != arr1[i]) {
+                    arr.add(arr1[i]);
+                }
+                i++;
             }
+            // Remaining elements of arr2
+            while (j < n) {
+                if (arr.isEmpty() || arr.get(arr.size() - 1) != arr2[j]) {
+                    arr.add(arr2[j]);
+                }
+                j++;
+            }
+            // Print result (optional)
+            System.out.println(arr);
         }
-         while (j>=0) {
-             arr1[k] = arr2[j];
-             j--;
-             k--;
-         }
-    }
-
 
     public static void main(String[] args) {
         System.out.println();
