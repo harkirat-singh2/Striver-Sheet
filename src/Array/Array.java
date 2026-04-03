@@ -214,9 +214,9 @@ public class Array {
         return ans;
     }
 
-    int longestSubarray(int[] arr, int k) {
-
-    }
+//    int longestSubarray(int[] arr, int k) {
+//
+//    }
 
     public static void main(String[] args) {
         System.out.println();
