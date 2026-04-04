@@ -113,6 +113,7 @@ public class Array {
              k--;
          }
     }
+
      void union(int[] arr1, int m, int[] arr2, int n) {
             ArrayList<Integer> arr = new ArrayList<>();
             int i = 0, j = 0;
