@@ -61,6 +61,7 @@ public class Array {
             end--;
         }
     }
+
     void rotateRight(int[] arr , int k){
         int n = arr.length;
         k=k%n;
