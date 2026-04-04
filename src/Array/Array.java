@@ -212,6 +212,7 @@ public class Array {
             ans = ans ^ el;
         }
         return ans;
+
     }
 //
 //    int longestSubarray(int[] arr, int k) {
