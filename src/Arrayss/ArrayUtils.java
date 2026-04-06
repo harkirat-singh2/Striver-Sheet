@@ -256,25 +256,21 @@ public class ArrayUtils {
         return count;
     }
 
-    // 🔹 Longest SubString without duplicate characters (Optimal)
+    // 🔹 Longest SubString without repeating characters (Optimal)
     public int lengthOfLongestSubstring(String s) {
         HashMap<Character, Integer> map = new HashMap<>();
         int left = 0;
         int maxLen = 0;
         for (int right = 0; right < s.length(); right++) {
             char ch = s.charAt(right);
-            // If duplicate found, move left
-            if (map.containsKey(ch) && map.get(ch) >= left) {
-                left = map.get(ch) + 1;
+            if (map.containsKey(ch)) {
+                left = Math.max(left, map.get(ch) + 1);
             }
-            // Update index of character
             map.put(ch, right);
-            // Update max length
             maxLen = Math.max(maxLen, right - left + 1);
         }
         return maxLen;
     }
-
 
 
     public static void main(String[] args) {
