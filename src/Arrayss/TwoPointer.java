@@ -52,10 +52,8 @@ public class TwoPointer {
 
                     start++;
                     end--;
-
                     // Skip duplicates for start
                     while (start < end && arr[start] == arr[start - 1]) start++;
-
                     // Skip duplicates for end
                     while (start < end && arr[end] == arr[end + 1]) end--;
                 }
