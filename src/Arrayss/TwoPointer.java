@@ -4,6 +4,18 @@ import java.util.*;
 
 public class TwoPointer {
 
+    public void moveZeroes(int[] arr){
+        int j= 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i]!=0){
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+
+    }
+
     public int[] twoSum(int[] arr, int target) {
         int[] res = new int[2];
         int start = 0;
