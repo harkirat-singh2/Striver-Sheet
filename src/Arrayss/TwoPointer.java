@@ -13,7 +13,6 @@ public class TwoPointer {
                 arr[j] = temp;
             }
         }
-
     }
 
     public int[] twoSum(int[] arr, int target) {
