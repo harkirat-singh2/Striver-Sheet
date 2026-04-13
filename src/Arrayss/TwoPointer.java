@@ -71,6 +71,30 @@ public class TwoPointer {
         return res;
     }
 
+    public void sortColors(int[] arr) {
+        int n = arr.length;
+        int low =0;
+        int mid = 0;
+        int high=n-1;
+        while (mid <= high) {
+            // your conditions and swaps here
+            if(arr[mid]==0){
+                int temp =arr[mid];
+                arr[mid]=arr[low];
+                arr[low] = temp;
+                low++;
+                mid++;
+            }
+            else if (arr[mid]==2){
+                int temp =arr[mid];
+                arr[mid]=arr[high];
+                arr[high] = temp;
+                high--;
+            }
+            else{mid++;}
+        }
+    }
+
     public static void main(String[] args) {
 
     }
