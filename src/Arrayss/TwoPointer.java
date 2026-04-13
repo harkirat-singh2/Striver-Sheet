@@ -101,11 +101,38 @@ public class TwoPointer {
         int max = 0;
 
         while(left<right){
+            int width = right-left;
+            int ht = Integer.min(height[left],height[right]);
+            int area = width * ht;
+            if (area>max) max = area;
 
+            if (height[left]<height[right]) left++;
+
+            else right--;
         }
-
-
         return max;
+    }
+
+    int trap(int[] height) {
+        int left = 0;
+        int right = height.length - 1;
+        int leftMax = 0;
+        int rightMax = 0;
+        int water = 0;
+        while(left<right){
+
+            if (height[left] < height[right]){
+                leftMax = Integer.max(leftMax, height[left]);
+                water += leftMax-height[left];
+                left++;
+            }
+            else {
+                rightMax = Integer.max(rightMax, height[right]);
+                water += rightMax-height[right];
+                right--;
+            }
+        }
+        return water;
     }
 
     public static void main(String[] args) {
